@@ -7,7 +7,13 @@
 
 <div style="margin: auto; width: 50%" *ngFor="let x of output_list">
   <img src="{{ x.image }}" style="margin: auto; display: block" />
-  <h3>{{ x.text }}</h3>
 </div>
+
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Enter your reply...</mat-label>
+    <input matInput placeholder="Response">
+  </mat-form-field>
+</p>
 
 <mat-spinner style="margin: auto" *ngIf="loading"></mat-spinner>
