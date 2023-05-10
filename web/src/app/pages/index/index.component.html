@@ -1,13 +1,13 @@
 <app-top-bar></app-top-bar>
 
 <div>
-	<h1>AI Adventures</h1>
-	<h2>I do a little trolling</h2>
+  <h1>AI Adventures</h1>
+  <h2>I do a little trolling</h2>
 </div>
 
-<div style="margin: auto; width: 50%;" *ngFor="let x of output_list">
-	<img src="{{x.image}}" style="margin: auto; display: block;">
-	<h3>{{x.text}}</h3>
+<div style="margin: auto; width: 50%" *ngFor="let x of output_list">
+  <img src="{{ x.image }}" style="margin: auto; display: block" />
+  <h3>{{ x.text }}</h3>
 </div>
 
-<mat-spinner style="margin: auto;" *ngIf="loading"></mat-spinner>
+<mat-spinner style="margin: auto" *ngIf="loading"></mat-spinner>

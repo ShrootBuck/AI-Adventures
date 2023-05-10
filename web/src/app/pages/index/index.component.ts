@@ -15,7 +15,9 @@ export class IndexComponent {
   loading: boolean = false;
 
   constructor() {
-    let x= this
-    setInterval(function(){x.output_list.push({text:"troll","image":"https://placehold.co/256"})}, 10000)
+    let x = this;
+    setInterval(function () {
+      x.output_list.push({ text: 'troll', image: 'https://placehold.co/256' });
+    }, 10000);
   }
 }

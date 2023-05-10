@@ -1,12 +1,6 @@
 <!-- Desktop -->
-<mat-toolbar *ngIf="!mobileScreen">
-  <a
-    mat-button
-    *ngFor="let MenuItem of Menu"
-    href="{{ MenuItem.url }}"
-    style="text-decoration: none"
-    target="{{ MenuItem.target }}"
+<mat-toolbar>
+  <a mat-button href="" style="text-decoration: none" target=""
+    >AI Adventures</a
   >
-    {{ MenuItem.text }}
-  </a>
 </mat-toolbar>
