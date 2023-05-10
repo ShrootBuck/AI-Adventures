@@ -14,9 +14,7 @@ interface MenuItem {
 })
 export class TopBarComponent {
   Menu: Array<MenuItem> = [
-    { text: 'ShrootBot', url: '' },
-    { text: 'Servers', url: 'servers', icon: 'storage' },
-    { text: 'Blog', url: 'https://blog.shrootbot.com', icon: 'article', target: "_blank" },
+    { text: 'AI Adventures', url: '' },
   ];
 
   mobileScreen: boolean;

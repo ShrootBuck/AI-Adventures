@@ -1,6 +1,13 @@
 <app-top-bar></app-top-bar>
 
-<div style="text-align: center;">
-	<h1>ShrootBot</h1>
-	<h2>The only Discord bot you'll ever need</h2>
+<div>
+	<h1>AI Adventures</h1>
+	<h2>I do a little trolling</h2>
 </div>
+
+<div style="margin: auto; width: 50%;" *ngFor="let x of output_list">
+	<img src="{{x.image}}" style="margin: auto; display: block;">
+	<h3>{{x.text}}</h3>
+</div>
+
+<mat-spinner style="margin: auto;" *ngIf="loading"></mat-spinner>

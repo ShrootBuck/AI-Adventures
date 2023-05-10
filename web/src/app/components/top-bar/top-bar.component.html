@@ -7,24 +7,6 @@
     style="text-decoration: none"
     target="{{ MenuItem.target }}"
   >
-    <mat-icon *ngIf="MenuItem.icon">{{ MenuItem.icon }}</mat-icon>
     {{ MenuItem.text }}
   </a>
-</mat-toolbar>
-
-<!-- Mobile -->
-<mat-toolbar *ngIf="mobileScreen">
-  <p>ShrootBot</p>
-
-  <span style="flex: 1 1 auto"></span>
-
-  <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <a mat-menu-item *ngFor="let MenuItem of Menu" href="{{ MenuItem.url }}">
-      <mat-icon>{{ MenuItem.icon }}</mat-icon>
-      {{ MenuItem.text }}
-    </a>
-  </mat-menu>
 </mat-toolbar>

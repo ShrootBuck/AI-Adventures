@@ -6,10 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // MUI Components
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-
 // Pages
 import { IndexComponent } from './pages/index/index.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -29,9 +27,8 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule,
     MatButtonModule,
-    MatMenuModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
