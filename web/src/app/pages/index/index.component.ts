@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 
+interface Message {
+  role: string;
+  content: string;
+}
+
 interface OutputItem {
-  text: string;
+  message: Message;
   image: string;
 }
 
@@ -11,13 +16,22 @@ interface OutputItem {
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent {
-  output_list: Array<OutputItem> = [];
   loading: boolean = false;
 
-  constructor() {
-    let x = this;
-    setInterval(function () {
-      x.output_list.push({ text: 'troll', image: 'https://placehold.co/256' });
-    }, 10000);
+  output_list: OutputItem[] = [];
+  messages: Message[] = [
+    {
+      role: "system",
+      content: "You are the author in a creative story-telling experience. Offer the user a set of numbered choices after each turn. Use imagery to depict the scenes."
+    }
+  ];
+
+  onEnterKey() {
+    this.loading = true;
+    const messages: Message[] = this.output_list.map(outputItem => {
+      return outputItem.message;
+    });
+
+    //this.loading = false;
   }
 }
