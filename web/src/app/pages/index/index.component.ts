@@ -1,20 +1,27 @@
 import { Component } from '@angular/core';
-import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
+import { Configuration, OpenAIApi } from "openai";
 
-interface Message {
-  role: string;
-  content: string;
-}
 
-const starting_message: Message = {
-  role: "system",
-  content: "You are the author in a creative story-telling experience. Offer the user a set of numbered choices after each turn. Use imagery to depict the scenes."
-}
+const configuration = new Configuration({
+  organization: "org-YFfyErm4NuAqFGTRJGV7BI5R",
+  apiKey: "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",
+});
+
+const openai = new OpenAIApi(configuration);
 
 interface OutputItem {
-  message: Message;
-  image?: string;
+  message: {},
+  image?: string,
 }
+
+const starting_messages = [
+  {
+    role: "system",
+    content: "You are the author in a creative story-telling experience. Offer the user a set of numbered choices after each turn. Use imagery to depict the scenes."},
+    {
+      role: "assistant",
+      content: "You are the author in a creative story-telling experience. Offer the user a set of numbered choices after each turn. Use imagery to depict the scenes."},
+]
 
 @Component({
   selector: 'app-index',
@@ -24,34 +31,17 @@ interface OutputItem {
 export class IndexComponent {
   loading: boolean = false;
 
-  output_list: OutputItem[] = [
+  output: OutputItem[] = [
     {
-      message: starting_message
+      message: starting_message,
     }
   ];
+
+  messages: {} = {starting_message};
 
   async onEnterKey() {
     this.loading = true;
 
-    const configuration = new Configuration({
-      organization: "org-YFfyErm4NuAqFGTRJGV7BI5R",
-      apiKey: "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",
-    });
-    
-    const openai = new OpenAIApi(configuration);
-
-    const messages = this.output_list.map(output_item => {
-      return {
-        role: output_item.message.role,
-        text: output_item.message.content
-      };
-    });
-
-    const completion = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: messages, // Convert to a ChatCompletionRequestMessage[]
-    });
-
-    //this.loading = false;
+    this.loading = false;
   }
 }
