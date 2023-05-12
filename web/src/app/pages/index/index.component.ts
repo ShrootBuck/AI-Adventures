@@ -67,6 +67,7 @@ const starting_message = {
 })
 export class IndexComponent {
   loading: boolean = false;
+  key_entered: boolean = false;
 
   output: OutputItem[] = [{ message: starting_message }];
   messages: Message[] = [system_message, starting_message];
