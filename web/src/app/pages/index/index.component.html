@@ -4,13 +4,25 @@
 
 <br />
 
+<mat-form-field appearance="outline">
+  <mat-label>Enter your OpenAI key...</mat-label>
+  <input
+    matInput
+    disabled="{{ key_entered }}"
+    placeholder="API key"
+    (keyup.enter)="onEnterKey()"
+    [(ngModel)]="keybox"
+  />
+</mat-form-field>
+
+<ng-container *ngIf="key_entered">
 <div style="margin: auto; width: 75%" *ngFor="let item of output">
   <p style="font-size: 150%">{{ item.message.content }}</p>
   <img src="{{ item.image }}" style="margin: auto; display: block" />
 </div>
+</ng-container>
 
-<p>
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" *ngIf="key_entered">
     <mat-label>Enter your reply...</mat-label>
     <input
       matInput
@@ -20,8 +32,6 @@
       [(ngModel)]="textbox"
     />
   </mat-form-field>
-</p>
 
 <mat-spinner style="margin: auto" *ngIf="loading"></mat-spinner>
 
-<br />

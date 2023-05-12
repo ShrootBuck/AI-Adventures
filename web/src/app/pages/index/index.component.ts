@@ -38,12 +38,6 @@ interface OpenAIImageResponse {
   ];
 }
 
-const http_options = {
-  headers: new HttpHeaders({
-    Authorization: 'Bearer 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',
-  }),
-};
-
 const story_starters: string[] = [
   "You have been locked in a cold room in an unfamiliar house. Before we begin, what's your name?",
   "You wake up on the ground in an abandoned warehouse. Before we begin, what's your name?",
@@ -52,7 +46,7 @@ const story_starters: string[] = [
 const system_message = {
   role: 'system',
   content:
-    'You are the author in a creative story-telling experience. Offer the user suggestions after each turn. Use imagery to depict the scenes.',
+    'You are the author in a creative story-telling experience. Offer the user enumerated options after each turn. Use imagery to depict the scenes.',
 };
 
 const starting_message = {
@@ -73,9 +67,20 @@ export class IndexComponent {
   messages: Message[] = [system_message, starting_message];
 
   textbox: string = '';
+  keybox: string = ''
+
+  http_options = {
+    headers: new HttpHeaders({
+      Authorization: 'Bearer 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',
+    }),
+  };
 
   async onEnterKey() {
     this.loading = true;
+
+    if (!this.key_entered) {
+      api
+    }
 
     this.messages.push({ role: 'user', content: this.textbox });
 
