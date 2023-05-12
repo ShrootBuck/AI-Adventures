@@ -2,15 +2,23 @@
 
 <h1>AI Adventures</h1>
 
-<div style="margin: auto; width: 50%" *ngFor="let item of output_list">
-  <h2>{{item.message.content}}</h2>
+<br />
+
+<div style="margin: auto; width: 75%" *ngFor="let item of output">
+  <p style="font-size: 150%">{{ item.message.content }}</p>
   <img src="{{ item.image }}" style="margin: auto; display: block" />
 </div>
 
 <p>
   <mat-form-field appearance="outline">
     <mat-label>Enter your reply...</mat-label>
-    <input matInput disabled="{{loading}}" placeholder="Response" (keyup.enter)="onEnterKey()">
+    <input
+      matInput
+      disabled="{{ loading }}"
+      placeholder="Response"
+      (keyup.enter)="onEnterKey()"
+      [(ngModel)]="textbox"
+    />
   </mat-form-field>
 </p>
 
