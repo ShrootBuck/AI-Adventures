@@ -12,6 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Pages
 import { IndexComponent } from './pages/index/index.component';
@@ -38,6 +39,7 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

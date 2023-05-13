@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Message {
   role: string;
@@ -67,19 +68,35 @@ export class IndexComponent {
   messages: Message[] = [system_message, starting_message];
 
   textbox: string = '';
-  keybox: string = ''
-
-  http_options = {
-    headers: new HttpHeaders({
-      Authorization: 'Bearer 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',
-    }),
-  };
+  keybox: string = '';
+  api_key: string = '';
 
   async onEnterKey() {
     this.loading = true;
 
+    const http_options = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.keybox}`,
+      }),
+    };
+
     if (!this.key_entered) {
-      api
+      this.http.get('https://api.openai.com/v1/models', http_options).subscribe(
+        (data) => {
+          this.api_key = this.keybox;
+          this.loading = false;
+          this.key_entered = true;
+        },
+        (error) => {
+          // Display error snackbar
+          this.snackBar.open('Please enter a valid API key.', 'Dismiss', {
+            duration: 3000,
+          });
+          this.loading = false;
+        }
+      );
+
+      return;
     }
 
     this.messages.push({ role: 'user', content: this.textbox });
@@ -132,5 +149,5 @@ export class IndexComponent {
       });
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
 }
