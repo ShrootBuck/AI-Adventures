@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Compiled output
-# /dist # Not disabling this because I'm too lazy to set up Github Actions
+/dist
 /tmp
 /out-tsc
 /bazel-out
