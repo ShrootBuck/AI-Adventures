@@ -25,4 +25,4 @@ jobs:
       - name: Deploy to github pages
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: ng deploy --repo=https://github.com/ShrootBuck/AI-Adventures.git --name=ShrootBuck --email=${{ secrets.EMAIL }}
+        run: npm run ng deploy --base-href=/AI-Adventures/ --repo=https://github.com/ShrootBuck/AI-Adventures.git --name=ShrootBuck --email=${{ secrets.EMAIL }}
