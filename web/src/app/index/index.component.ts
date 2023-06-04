@@ -41,7 +41,7 @@ interface OpenAIImageResponse {
 
 const story_starters: string[] = [
   "You have been locked in a cold room in an unfamiliar house. Before we begin, what's your name?",
-  "You wake up on the ground in an abandoned warehouse. Before we begin, what's your name?",
+  "You wake up on the ground in an abandoned building. Before we begin, what's your name?",
 ];
 
 const system_message = {

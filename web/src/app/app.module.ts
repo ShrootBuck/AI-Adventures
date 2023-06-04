@@ -15,19 +15,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Pages
-import { IndexComponent } from './pages/index/index.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-
-// Components
-import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    IndexComponent,
-    NotFoundComponent,
-    TopBarComponent,
-  ],
+  declarations: [AppComponent, IndexComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

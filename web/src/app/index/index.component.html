@@ -1,23 +1,34 @@
-<app-top-bar></app-top-bar>
+<mat-toolbar>
+  <a mat-button href="https://twitter.com/ShrootBuck" target="_blank"
+    >@ShrootBuck</a
+  >
+</mat-toolbar>
 
 <h1>AI Adventures</h1>
 
 <mat-form-field appearance="outline" *ngIf="!key_entered">
-  <mat-label>Enter your OpenAI key...</mat-label>
+  <mat-label>Enter your OpenAI key</mat-label>
   <input
     matInput
     disabled="{{ key_entered }}"
     placeholder="API key"
-    (keyup.enter)="onEnterKey()"
+    (change)="onEnterKey()"
     [(ngModel)]="keybox"
   />
 </mat-form-field>
 
 <ng-container *ngIf="key_entered">
-  <div style="margin: auto; width: 50%" *ngFor="let item of output">
-    <p style="font-size: 150%">{{ item.message.content }}</p>
-    <img src="{{ item.image }}" style="margin: auto; display: block" />
-  </div>
+  <ng-container *ngFor="let item of output">
+    <h2 style="margin-left: 2.5%; margin-right: 2.5%">
+      {{ item.message.content }}
+    </h2>
+    <img
+      *ngIf="item.image"
+      src="{{ item.image }}"
+      width="350px"
+      style="padding-bottom: 5rem"
+    />
+  </ng-container>
 </ng-container>
 
 <br />
