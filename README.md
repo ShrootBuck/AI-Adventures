@@ -1,7 +1,5 @@
-# AI-Adventures - A funky computer science project
+# AI-Adventures
 
-To use, run the following commands in the `web` directory:
-1. `npm i` to install required packages
-2. `ng serve -o` to serve the app and open it in a new tab
+## A funky comp-sci project
 
 Made by Zayd Krunz & Nam Ta.
