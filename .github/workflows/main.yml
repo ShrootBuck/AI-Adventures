@@ -20,7 +20,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Deploy to github pages
+      - name: Deploy to GitHub pages
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npm run ng deploy --no-silent --base-href=/AI-Adventures/ --repo=https://github.com/ShrootBuck/AI-Adventures.git --name=ShrootBuck --email=${{ secrets.EMAIL }}
+        run: npm run ng deploy --base-href=/AI-Adventures/ --repo=https://github.com/ShrootBuck/AI-Adventures.git --name="ShrootBuck" --email=${{ secrets.EMAIL }}
