@@ -40,8 +40,11 @@ interface OpenAIImageResponse {
 }
 
 const story_starters: string[] = [
-  "You have been locked in a cold room in an unfamiliar house. Before we begin, what's your name?",
-  "You wake up on the ground in an abandoned building. Before we begin, what's your name?",
+  "You wake up in a cold room in an unfamiliar house.",
+  "You wake up on the ground in an abandoned building.",
+  "You wake up on the ground in an abandoned government building.",
+  "You wake up in a private jet, with both pilots missing.",
+  "You wake up on a private island, with nobody in sight."
 ];
 
 const system_message = {
@@ -52,7 +55,7 @@ const system_message = {
 
 const starting_message = {
   role: 'assistant',
-  content: story_starters[Math.floor(Math.random() * story_starters.length)],
+  content: story_starters[Math.floor(Math.random() * story_starters.length)] + " Before we begin, what's your name?",
 };
 
 @Component({
@@ -118,7 +121,7 @@ export class IndexComponent {
         const visual_message_context = {
           model: 'gpt-3.5-turbo',
           messages: this.messages.concat({
-            role: 'user',
+            role: 'system',
             content: 'Reply with a visual description of the current scene.',
           }),
         };
