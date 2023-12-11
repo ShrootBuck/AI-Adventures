@@ -1,13 +1,11 @@
 import flask, os
 
-app = flask.Flask(
-    __name__, static_url_path="/", static_folder="dist/shroot-buck/browser"
-)
+app = flask.Flask(__name__, static_url_path="/", static_folder="dist/web")
 
 
 @app.errorhandler(404)
 def notFound(error):
-    return flask.send_from_directory("dist/shroot-buck/browser", "index.html")
+    return flask.send_from_directory("dist/web", "index.html")
 
 
 @app.after_request
